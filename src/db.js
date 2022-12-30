@@ -1,7 +1,8 @@
 import { connect } from "mongoose";
+import { MONGODB_URI } from "./config";
 export const connectDB = async () => {
   try {
-    await connect("mongodb://localhost:27017/tarearealtimedb")
+    await connect(MONGODB_URI)
     console.log("Database connected");
   } catch (error) {
     console.log(error);
