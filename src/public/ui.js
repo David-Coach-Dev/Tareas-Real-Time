@@ -8,12 +8,17 @@ let saveId = '';
 const noteUI = note => {
   const div = document.createElement('div');
   div.innerHTML += `
-      <div>
+    <div class="card card-body rounded-3 mb-2">
+      <div class="d-flex justify-content-between mb-2">
         <h2>${note.title}</h2>
-        <p>${note.description}</p>
-        <button class= "update" data-id ="${note._id}" >Update</button>
-        <button class= "delete" data-id ="${note._id}" >Delete</button>
+        <div class="d-flex flex-column mb-2">
+          <button class= "btn btn-danger update" data-id ="${note._id}" >Update</button>
+          <button class= "btn btn-primary delete" data-id ="${note._id}" >Delete</button>
+        </div>
       </div>
+      <p>${note.description}</p>
+    </div>
+      
   `;
   //btnDelete
   const btnDelete = div.querySelector('.delete');
@@ -47,10 +52,16 @@ export const appendNote = note => {
 
 export const onHandleSubmit = (e) => {
   e.preventDefault();
-  if (saveId) {
-    upDateNote(saveId, title.value, description.value);
+  if (title.value === '' || description.value === '') {
+    title.focus();
+    return alert('Por favor ingrese todos los campos');
   } else {
-    saveNote(title.value, description.value);
+
+    if (saveId) {
+      upDateNote(saveId, title.value, description.value);
+    } else {
+      saveNote(title.value, description.value);
+    }
   }
   saveId = '';
   title.value = '';

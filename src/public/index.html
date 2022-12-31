@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tareas Real Time</title>
-</head>
-<body>
-  <h1>Tareas Real Time</h1>
-  <form id="noteForm">
-    <input type="text" id="title" placeholder="Escribe una tarea">
-    <textarea id="description" rows="3" placeholder="Escriba una descripción"></textarea>
-    <button>Send</button>
-  </form>
-  <ul id="notes"></ul>
-  <script src="socket.io/socket.io.js"></script>
-  <script src="./main.js" type="module"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tareas Real Time</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <h1>Tareas Real Time</h1>
+    <div class="container h-100">
+      <div class="row h-100">
+        <div class="col-md-4">
+          <form
+            id="noteForm"
+            class="d-flex flex-column form-control rounded-3 mb-3"
+            autofocus
+          >
+            <h3 class="text-center">Nueva Tarea</h3>
+            <label for="Name">Nombre de la nota</label>
+            <input id="title" type="text" class="form-control rounded-3 mb-3" />
+            <label for="Name">Descripción de la nota</label>
+            <textarea id="description" rows="3" class="form-control rounded-3 mb-3"></textarea>
+            <button class="btn btn-dark rounded-3">Guardar Nota</button>
+          </form>
+          <div id="notes" class="col-md-8"></div>
+        </div>
+      </div>
+    </div>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="./main.js" type="module"></script>
+  </body>
 </html>
