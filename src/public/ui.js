@@ -8,8 +8,8 @@ const noteUI = note => {
       <div>
         <h2>${note.title}</h2>
         <p>${note.description}</p>
-        <button>Delete</button>
         <button>Update</button>
+        <button>Delete</button>
       </div>
   `;
   return div;
