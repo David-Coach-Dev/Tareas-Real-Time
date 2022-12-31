@@ -56,8 +56,7 @@ export const onHandleSubmit = (e) => {
   if (title.value === '' || description.value === '') {
     if (title.value === "") {
       title.focus();
-    }
-    if (description.value === "") {
+    }else if (description.value === "") {
       description.focus();
     }
     return alert('Por favor ingrese todos los campos');
