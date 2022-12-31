@@ -11,27 +11,31 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <h1>Tareas Real Time</h1>
-    <div class="container h-100">
+    <div class="container h-100 p-5">
+  <h1 class="d-flex justify-content-center text-success-emphasis m-4">Tareas Real Time</h1>
       <div class="row h-100">
-        <div class="col-md-4">
+        <div class="col-md-4 my-auto d-flex">
           <form
             id="noteForm"
-            class="d-flex flex-column form-control rounded-3 mb-3"
+            class="d-flex flex-column card card-body form-control rounded-3 mb-3 animate__animated animate__fadeInUp"
             autofocus
           >
-            <h3 class="text-center">Nueva Tarea</h3>
-            <label for="Name">Nombre de la nota</label>
-            <input id="title" type="text" class="form-control rounded-3 mb-3" />
-            <label for="Name">Descripción de la nota</label>
-            <textarea id="description" rows="3" class="form-control rounded-3 mb-3"></textarea>
-            <button class="btn btn-dark rounded-3">Guardar Nota</button>
+            <h3 class="text-center text-warning">Nueva Tarea</h3>
+            <label class="form-control text-primary border-0">Nombre de la nota</label>
+            <input id="title" type="text" class="form-control text-secondary-emphasis rounded-3 mb-3" />
+            <label class="form-control text-primary border-0">Descripción de la nota</label>
+            <textarea id="description" rows="3" class="form-control text-secudary rounded-3 mb-3"></textarea>
+            <button class="btn btn-success rounded-3">Guardar Nota</button>
           </form>
-          <div id="notes" class="col-md-8"></div>
         </div>
+          <div id="notes" class="col-md-8"></div>
       </div>
     </div>
     <script src="socket.io/socket.io.js"></script>

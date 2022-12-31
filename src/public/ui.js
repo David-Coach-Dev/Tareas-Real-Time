@@ -8,15 +8,15 @@ let saveId = '';
 const noteUI = note => {
   const div = document.createElement('div');
   div.innerHTML += `
-    <div class="card card-body rounded-3 mb-2">
-      <div class="d-flex justify-content-between mb-2">
-        <h2>${note.title}</h2>
-        <div class="d-flex flex-column mb-2">
-          <button class= "btn btn-danger update" data-id ="${note._id}" >Update</button>
-          <button class= "btn btn-primary delete" data-id ="${note._id}" >Delete</button>
-        </div>
+    <div class="card card-body d-flex flex-row justify-content-between rounded-3 mb-2 animate__animated animate__fadeInUp">
+      <div class="d-flex flex-column mb-2">
+        <h2 class="text-primary ">${note.title}</h2>
+        <p class="text-secondary">${note.description}</p>
       </div>
-      <p>${note.description}</p>
+      <div class="d-flex flex-column mb-2">
+          <button class= "btn btn-primary update" data-id ="${note._id}" >Update</button>
+          <button class= "btn btn-danger delete" data-id ="${note._id}" >Delete</button>
+      </div>
     </div>
       
   `;
@@ -41,6 +41,7 @@ export const renderNotes = notes => {
 };
 
 export const fillForm = (note) => {
+  title.focus();
   saveId = note._id;
   title.value = note.title;
   description.value = note.description;
@@ -53,7 +54,12 @@ export const appendNote = note => {
 export const onHandleSubmit = (e) => {
   e.preventDefault();
   if (title.value === '' || description.value === '') {
-    title.focus();
+    if (title.value === "") {
+      title.focus();
+    }
+    if (description.value === "") {
+      description.focus();
+    }
     return alert('Por favor ingrese todos los campos');
   } else {
 
